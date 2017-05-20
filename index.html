@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<script src="js/angular.min.js">></script>
+		<!-- <script src="js/angular-route.js"></script> -->
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script src="js/mycontroller.js"></script>
+		<title>CRUD Angular App</title>
+	</head>
+	<body ng-app="myApp">	
+		<div class="container" style="margin-top:3%;">
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10" ng-controller="productController">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Name</th>
+								<th>Price</th>
+								<th>Quantity</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="product in products">
+								<td>{{ product.id }}</td>
+								<td>{{ product.name }}</td>
+								<td>{{ product.price }}</td>
+								<td>{{ product.quantity }}</td>
+								<td>
+									<input type="button" class="btn btn-primary" value="Edit" ng-click="edit(product.id)" style="cursor:pointer;"/>
+									<input type="button" class="btn btn-primary" value="Delete" ng-click="del(product.id)" style="cursor:pointer;"/>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<h3>Product Information</h3>
+					<div class="col-md-12" style="margin-top:1%;">						
+						<form>
+							<div class="row">
+								<div class="col-md-6">
+									<label>Product Id</label>
+								</div>
+								<div class="col-md-6">
+									<input class="form-control" type="text" ng-model="id" />
+								</div>
+							</div>
+							<div class="row" style="margin-top:1%;">
+								<div class="col-md-6">
+									<label>Product Name</label>
+								</div>
+								<div class="col-md-6">
+									<input class="form-control" type="text" ng-model="name" />
+								</div>
+							</div>
+							<div class="row" style="margin-top:1%;">
+								<div class="col-md-6">
+									<label>Product Price</label>
+								</div>
+								<div class="col-md-6">
+									<input class="form-control" type="text" ng-model="price" />
+								</div>
+							</div>
+							<div class="row" style="margin-top:1%;">
+								<div class="col-md-6">
+									<label>Product Quantity</label>
+								</div>
+								<div class="col-md-6">
+									<input class="form-control" type="text" ng-model="quantity" />
+								</div>
+							</div>
+							<div class="row" style="margin-top:1%;">
+								<div class="col-md-6"></div>
+								<div class="col-md-6">
+									<button type="button" class="btn btn-primary" ng-click="add()">Add</button>&nbsp;
+									<button type="button" class="btn btn-primary" ng-click="save()">Save</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>	
+		</div>
+	</body>
+</html>
